@@ -1,0 +1,52 @@
+<!doctype html>
+<html ng-app="powertimerApp">
+  <head>
+    <meta charset="utf-8">
+    <title>PowerTimer</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body ng-controller="TaskCtrl">
+<header>
+  <div class="content-box">
+    <h1>PowerTimer</h1>
+  </div>
+</header><aside>
+  <div class="content-box">
+    <form ng-submit="addTask()">
+      <input class="new-task" placeholder="What have you done?" ng-model="newTask">
+    </form>
+      <ul class="task-list">
+        <li ng-repeat="task in tasks | orderBy: '-created'" >
+          <div>
+            <p>{{task.title}}</p>
+          </div>
+        </li>
+      </ul>      
+  </div>
+</aside><section>
+  <div class="content-box">
+    Current time is: <span my-current-time></span>
+    <hr/>
+   <power-timer></power-timer>
+  </div>
+</section><footer>
+  <div class="content-box">&#60;footer&#62;</div>
+</footer>
+</body>
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/buzz/1.1.10/buzz.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.1/angularfire.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <!-- endbuild -->
+</body>
+</html>

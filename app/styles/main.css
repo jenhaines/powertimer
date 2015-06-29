@@ -1,0 +1,105 @@
+html,
+body {
+  box-sizing: border-box;
+}
+
+.content-box {
+  font-family:  "Source Code Pro", Inconsolata, "Lucida Console", Terminal, "Courier New", Courier;
+  padding: 24px 15px;
+  text-align: center;
+}
+header,
+section,
+aside,
+footer {
+  background: #2db34a;
+  border-radius: 6px;
+  color: #fff;
+  margin: 0 1% 18px 1%;
+  vertical-align: top;
+}
+
+aside {
+  display: inline-block;
+  width: 33%;
+  height: 500px;
+}
+section {
+  display: inline-block;
+  width: 63%;
+  height: 500px;
+}
+footer {
+  margin-bottom: 0;
+}
+
+.new-task{
+  width: 80%;
+  font-size: 16px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: inherit;
+  padding: 4px 4px 4px 20px;
+}
+.task-list {
+  margin: 0;
+  list-style: none;
+}
+
+.task-list li {
+  position: relative;
+  font-size: 14px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: inherit;
+  text-align: left;
+  padding: 0px 0px 0px 20px;
+  border-bottom: 1px solid #ededed;
+}
+
+.task-list li:last-child {
+  border-bottom: none;
+}
+
+.taskapp {
+  background: #fff;
+  margin: 130px 0 40px 0;
+  left: 50px;
+  top: 50px;
+  margin: 0;
+  width: 65%;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+               0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.timer{
+  font-size: 52px;
+  font-family: inherit;
+  color: red;
+  padding: 20px 0px;
+}
+
+.btn {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: inherit;
+  color: #ffffff;
+  font-size: 14px;
+  background: #2db34a;
+  padding: 8px 15px 8px 15px;
+  border: solid #ffffff 2px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #65f558;
+  text-decoration: none;
+}
+
+.btn:ng-click-active,
+.btn:active {
+  background: #ffffff;
+}
+.btn:focus {
+  outline:0;
+}
