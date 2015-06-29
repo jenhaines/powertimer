@@ -11,9 +11,9 @@
 
 angular.module('powertimerApp', ['firebase'])
 
-.constant('WORK_TIME', 1500)
-.constant('BREAK_TIME', 300)
-.constant('LONG_BREAK', 1800)
+.constant('WORK_TIME', 10)
+.constant('BREAK_TIME', 4)
+.constant('LONG_BREAK', 6)
 
 .controller('TaskCtrl', function($scope, $firebaseArray, Firebase, $interval){
   var url = 'https://jennifer.firebaseio.com/tasks';
@@ -21,14 +21,6 @@ angular.module('powertimerApp', ['firebase'])
 
   $scope.tasks = $firebaseArray(fireRef);
   $scope.newTask = '';
-  var mySound = new buzz.sound( '/sounds/ginger.mp3');
-  
-
-  $scope.playMe = function(){
-    mySound.play();
-  };
-
-
 
   $scope.addTask = function () {
     var newTask = $scope.newTask.trim();
@@ -69,6 +61,9 @@ angular.module('powertimerApp', ['firebase'])
         scope.timer = WORK_TIME;
         var intervalNum = 1;
         var stop;
+        var mySound = new buzz.sound( '/sounds/ginger.mp3', {
+          preload: true
+        });
 
         scope.startTimer = function() {
           // Don't start a new start if we are already starting
@@ -78,6 +73,7 @@ angular.module('powertimerApp', ['firebase'])
               if (scope.timer > 0) {
                 scope.timer --;
               } else {
+
                 scope.stopTimer(scope.work);
               }
             }, 1000);
@@ -85,6 +81,7 @@ angular.module('powertimerApp', ['firebase'])
 
           scope.stopTimer = function(item) {
             if (angular.isDefined(stop)) {
+              mySound.play();
               $interval.cancel(stop);
               if(item === 'Work'){
                 if(intervalNum === 4){
