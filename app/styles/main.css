@@ -72,15 +72,12 @@ footer {
 }
 
 .timer{
-  font-size: 52px;
-  font-family: inherit;
+  font-size: 60px;
   color: red;
   padding: 20px 0px;
 }
 
 .btn {
-  -webkit-border-radius: 28;
-  -moz-border-radius: 28;
   border-radius: 28px;
   font-family: inherit;
   color: #ffffff;
@@ -96,10 +93,27 @@ footer {
   text-decoration: none;
 }
 
-.btn:ng-click-active,
-.btn:active {
-  background: #ffffff;
-}
 .btn:focus {
   outline:0;
+}
+
+.bigger{
+  animation-name: stretch;
+  animation-duration: 1s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 3;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+@keyframes stretch {
+  0% {
+    transform: scale(.7);
+    border-radius: 100%;
+  }
+  50% {
+    background-color: red;
+  }
 }

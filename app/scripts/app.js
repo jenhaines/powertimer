@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 
-angular.module('powertimerApp', ['firebase'])
+angular.module('powertimerApp', ['firebase', 'ngAnimate'])
 
 .constant('WORK_TIME', 10)
 .constant('BREAK_TIME', 4)
@@ -68,12 +68,17 @@ angular.module('powertimerApp', ['firebase'])
         scope.startTimer = function() {
           // Don't start a new start if we are already starting
           if ( angular.isDefined(stop) ) return;
+          scope.showBoxOne = false;
 
           stop = $interval(function() {
-              if (scope.timer > 0) {
+              if (scope.timer > 1) {
                 scope.timer --;
+              } else if(scope.timer == 1){
+                scope.timer --;
+                mySound.play();
+                scope.showBoxOne=!scope.showBoxOne;
+                scope.trigger();
               } else {
-
                 scope.stopTimer(scope.work);
               }
             }, 1000);
@@ -81,7 +86,6 @@ angular.module('powertimerApp', ['firebase'])
 
           scope.stopTimer = function(item) {
             if (angular.isDefined(stop)) {
-              mySound.play();
               $interval.cancel(stop);
               if(item === 'Work'){
                 if(intervalNum === 4){
