@@ -33,6 +33,11 @@ footer {
   margin-bottom: 0;
 }
 
+.description{
+  margin: 100px 10px;
+  text-align: left;
+}
+
 .new-task{
   width: 80%;
   font-size: 16px;
@@ -72,15 +77,12 @@ footer {
 }
 
 .timer{
-  font-size: 52px;
-  font-family: inherit;
+  font-size: 60px;
   color: red;
   padding: 20px 0px;
 }
 
 .btn {
-  -webkit-border-radius: 28;
-  -moz-border-radius: 28;
   border-radius: 28px;
   font-family: inherit;
   color: #ffffff;
@@ -89,17 +91,32 @@ footer {
   padding: 8px 15px 8px 15px;
   border: solid #ffffff 2px;
   text-decoration: none;
+  outline: 0;
 }
 
 .btn:hover {
   background: #65f558;
-  text-decoration: none;
 }
 
-.btn:ng-click-active,
-.btn:active {
-  background: #ffffff;
+
+.active{
+  background: #65f558;
 }
-.btn:focus {
-  outline:0;
+
+.bigger{
+  animation-duration: .5s; 
+  animation-name: pulse;
+  animation-timing-function: ease; 
+  animation-delay: 0;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(.7);
+  }
+  100%{
+    transform: scale(1);
+  }
 }

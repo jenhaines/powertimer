@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 
-angular.module('powertimerApp', ['firebase'])
+angular.module('powertimerApp', ['firebase', 'ngAnimate'])
 
 .constant('WORK_TIME', 1500)
 .constant('BREAK_TIME', 300)
@@ -21,13 +21,6 @@ angular.module('powertimerApp', ['firebase'])
 
   $scope.tasks = $firebaseArray(fireRef);
   $scope.newTask = '';
-  var mySound = new buzz.sound( '/sounds/ginger.mp3');
-  
-
-  $scope.playMe = function(){
-    mySound.play();
-  };
-
 
 
   $scope.addTask = function () {
@@ -69,14 +62,30 @@ angular.module('powertimerApp', ['firebase'])
         scope.timer = WORK_TIME;
         var intervalNum = 1;
         var stop;
+        var finTone = new buzz.sound( '/sounds/ginger.mp3', {
+          preload: true
+        });
+        var cntDown = new buzz.sound('/sounds/saliva.mp3', {
+          preload: true
+        });
 
         scope.startTimer = function() {
           // Don't start a new start if we are already starting
           if ( angular.isDefined(stop) ) return;
+          scope.showBoxOne = false;
+          scope.isActive = true;
+
 
           stop = $interval(function() {
-              if (scope.timer > 0) {
+              if (scope.timer > 1) {
+                if(scope.timer < 5){
+                  scope.showBoxOne= !scope.showBoxOne;
+                  cntDown.play();
+                }
                 scope.timer --;
+              } else if(scope.timer == 1){
+                scope.timer --;
+                finTone.play();
               } else {
                 scope.stopTimer(scope.work);
               }
@@ -100,8 +109,8 @@ angular.module('powertimerApp', ['firebase'])
                 scope.work = 'Work';
                 scope.timer = WORK_TIME;
               };
-              console.log(intervalNum);
             stop = undefined;
+            scope.isActive=false;
             }
           };
 
