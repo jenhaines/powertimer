@@ -33,6 +33,11 @@ footer {
   margin-bottom: 0;
 }
 
+.description{
+  margin: 100px 10px;
+  text-align: left;
+}
+
 .new-task{
   width: 80%;
   font-size: 16px;
@@ -86,34 +91,32 @@ footer {
   padding: 8px 15px 8px 15px;
   border: solid #ffffff 2px;
   text-decoration: none;
+  outline: 0;
 }
 
 .btn:hover {
   background: #65f558;
-  text-decoration: none;
 }
 
-.btn:focus {
-  outline:0;
+
+.active{
+  background: #65f558;
 }
 
 .bigger{
-  animation-name: stretch;
-  animation-duration: 1s; 
-  animation-timing-function: ease-out; 
+  animation-duration: .5s; 
+  animation-name: pulse;
+  animation-timing-function: ease; 
   animation-delay: 0;
-  animation-direction: alternate;
-  animation-iteration-count: 3;
-  animation-fill-mode: none;
-  animation-play-state: running;
+  animation-iteration-count: 1;
+  animation-direction: normal;
 }
 
-@keyframes stretch {
-  0% {
-    transform: scale(.7);
-    border-radius: 100%;
-  }
+@keyframes pulse {
   50% {
-    background-color: red;
+    transform: scale(.7);
+  }
+  100%{
+    transform: scale(1);
   }
 }

@@ -11,9 +11,9 @@
 
 angular.module('powertimerApp', ['firebase', 'ngAnimate'])
 
-.constant('WORK_TIME', 10)
-.constant('BREAK_TIME', 4)
-.constant('LONG_BREAK', 6)
+.constant('WORK_TIME', 1500)
+.constant('BREAK_TIME', 300)
+.constant('LONG_BREAK', 1800)
 
 .controller('TaskCtrl', function($scope, $firebaseArray, Firebase, $interval){
   var url = 'https://jennifer.firebaseio.com/tasks';
@@ -21,6 +21,7 @@ angular.module('powertimerApp', ['firebase', 'ngAnimate'])
 
   $scope.tasks = $firebaseArray(fireRef);
   $scope.newTask = '';
+
 
   $scope.addTask = function () {
     var newTask = $scope.newTask.trim();
@@ -61,7 +62,10 @@ angular.module('powertimerApp', ['firebase', 'ngAnimate'])
         scope.timer = WORK_TIME;
         var intervalNum = 1;
         var stop;
-        var mySound = new buzz.sound( '/sounds/ginger.mp3', {
+        var finTone = new buzz.sound( '/sounds/ginger.mp3', {
+          preload: true
+        });
+        var cntDown = new buzz.sound('/sounds/saliva.mp3', {
           preload: true
         });
 
@@ -69,15 +73,19 @@ angular.module('powertimerApp', ['firebase', 'ngAnimate'])
           // Don't start a new start if we are already starting
           if ( angular.isDefined(stop) ) return;
           scope.showBoxOne = false;
+          scope.isActive = true;
+
 
           stop = $interval(function() {
               if (scope.timer > 1) {
+                if(scope.timer < 5){
+                  scope.showBoxOne= !scope.showBoxOne;
+                  cntDown.play();
+                }
                 scope.timer --;
               } else if(scope.timer == 1){
                 scope.timer --;
-                mySound.play();
-                scope.showBoxOne=!scope.showBoxOne;
-                scope.trigger();
+                finTone.play();
               } else {
                 scope.stopTimer(scope.work);
               }
@@ -101,8 +109,8 @@ angular.module('powertimerApp', ['firebase', 'ngAnimate'])
                 scope.work = 'Work';
                 scope.timer = WORK_TIME;
               };
-              console.log(intervalNum);
             stop = undefined;
+            scope.isActive=false;
             }
           };
 
