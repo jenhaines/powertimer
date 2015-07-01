@@ -34,8 +34,10 @@ footer {
 }
 
 .description{
-  margin: 100px 10px;
-  text-align: left;
+  font-size: 14px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: inherit;
+  margin: 0 100px;
 }
 
 .new-task{
@@ -52,8 +54,7 @@ footer {
 
 .task-list li {
   position: relative;
-  font-size: 14px;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
   font-weight: inherit;
   text-align: left;
   padding: 0px 0px 0px 20px;
@@ -77,9 +78,15 @@ footer {
 }
 
 .timer{
+  position: relative;
   font-size: 60px;
   color: red;
-  padding: 20px 0px;
+  top: 20px;
+}
+
+.tomato{
+  position: relative;
+  top: 40px;
 }
 
 .btn {
@@ -100,15 +107,15 @@ footer {
 
 
 .active{
-  background: #65f558;
+  border: solid #ffff00 2px;
 }
 
 .bigger{
-  animation-duration: .5s; 
+  animation-duration: 1s; 
   animation-name: pulse;
   animation-timing-function: ease; 
   animation-delay: 0;
-  animation-iteration-count: 1;
+  animation-iteration-count: 4;
   animation-direction: normal;
 }
 

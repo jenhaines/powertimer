@@ -1,2 +1,4 @@
-<div class="timer" ng-class="{'bigger':showBoxOne}">{{ timer | secondsToMin }}</div>
-   <button class="btn" ng-class="{'active':isActive}" ng-click="startTimer()">{{ 'Start ' + work }}</button> | <button class="btn" ng-click="stopTimer('Break')">Stop & Reset</button> 
+<div class="timer" >{{ timer | secondsToMin }}
+</br>
+   <button class="btn" ng-class="{'active':isActive}" ng-click="startTimer()">{{ 'Start ' + work }}</button>&nbsp<button class="btn" ng-click="stopTimer('Break')">Stop & Reset</button> 
+   </div>

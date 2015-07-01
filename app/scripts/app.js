@@ -11,9 +11,9 @@
 
 angular.module('powertimerApp', ['firebase', 'ngAnimate'])
 
-.constant('WORK_TIME', 1500)
-.constant('BREAK_TIME', 300)
-.constant('LONG_BREAK', 1800)
+.constant('WORK_TIME', 15)
+.constant('BREAK_TIME', 5)
+.constant('LONG_BREAK', 10)
 
 .controller('TaskCtrl', function($scope, $firebaseArray, Firebase, $interval){
   var url = 'https://jennifer.firebaseio.com/tasks';
@@ -21,6 +21,11 @@ angular.module('powertimerApp', ['firebase', 'ngAnimate'])
 
   $scope.tasks = $firebaseArray(fireRef);
   $scope.newTask = '';
+  $scope.showBoxOne = false;
+
+  $scope.timeOut = function(){
+      $scope.showBoxOne = !$scope.showBoxOne;
+  }
 
 
   $scope.addTask = function () {
@@ -72,16 +77,18 @@ angular.module('powertimerApp', ['firebase', 'ngAnimate'])
         scope.startTimer = function() {
           // Don't start a new start if we are already starting
           if ( angular.isDefined(stop) ) return;
-          scope.showBoxOne = false;
           scope.isActive = true;
 
 
           stop = $interval(function() {
               if (scope.timer > 1) {
-                if(scope.timer < 5){
-                  scope.showBoxOne= !scope.showBoxOne;
-                  cntDown.play();
-                }
+                if(scope.timer == 4){
+                debugger; 
+                  scope.timeOut() ;
+                };
+                if(scope.timer  <=  4){
+                  cntDown.play(); 
+                };
                 scope.timer --;
               } else if(scope.timer == 1){
                 scope.timer --;
@@ -111,6 +118,7 @@ angular.module('powertimerApp', ['firebase', 'ngAnimate'])
               };
             stop = undefined;
             scope.isActive=false;
+            scope.timeOut();
             }
           };
 
