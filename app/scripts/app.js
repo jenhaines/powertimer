@@ -17,7 +17,7 @@ angular.module('powertimerApp', ['firebase', 'ngAnimate'])
 
 .controller('TaskCtrl', function($scope, $firebaseArray, Firebase, $interval){
   var url = 'https://jennifer.firebaseio.com/tasks';
-  var fireRef = new Firebase(url).limitToFirst(8);
+  var fireRef = new Firebase(url).limitToLast(10);
 
   $scope.tasks = $firebaseArray(fireRef);
   $scope.newTask = '';
