@@ -1,13 +1,15 @@
 html,
 body {
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
 }
 
 .content-box {
   font-family:  "Source Code Pro", Inconsolata, "Lucida Console", Terminal, "Courier New", Courier;
-  padding: 24px 15px;
   text-align: center;
+  padding: 15px;
 }
+
 header,
 section,
 aside,
@@ -33,6 +35,12 @@ footer {
   margin-bottom: 0;
 }
 
+.banner{
+  font-family: inherit;
+  font-size: 50px;
+  margin: 10px;
+}
+
 .description{
   font-size: 14px;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -40,15 +48,23 @@ footer {
   margin: 0 100px;
 }
 
+.task-box{
+  background-color: #fff;
+  max-width: 300px; 
+  min-width: 250px;
+  margin: 15px auto;
+}
+
 .new-task{
-  width: 80%;
+  width: 75.5%;
   font-size: 16px;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: inherit;
-  padding: 4px 4px 4px 20px;
+  font-style: italic;
+  font-weight: 300;
+  color: #e6e6e6;
+  padding: 10px 10px 10px 60px;
+
 }
 .task-list {
-  margin: 0;
   list-style: none;
 }
 
@@ -79,7 +95,7 @@ footer {
 
 .timer{
   position: relative;
-  font-size: 60px;
+  font-size: 66px;
   color: red;
   top: 20px;
 }
@@ -93,9 +109,9 @@ footer {
   border-radius: 28px;
   font-family: inherit;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 16px;
   background: #2db34a;
-  padding: 8px 15px 8px 15px;
+  padding: 10px 17px;
   border: solid #ffffff 2px;
   text-decoration: none;
   outline: 0;

@@ -10,10 +10,10 @@
   <body ng-controller="TaskCtrl">
 <header>
   <div class="content-box">
-    <h1 class="element">PowerTimer</h1>
+    <p class="banner">PowerTimer</p>
   </div>
 </header><aside>
-  <div class="content-box">
+  <div class="task-box">
     <form ng-submit="addTask()">
       <input class="new-task" placeholder="What have you done?" ng-model="newTask">
     </form>
@@ -24,7 +24,7 @@
           </div>
         </li>
       </ul>      
-  </div>
+      </div>
 </aside><section>
   <div class="content-box">
     Current time is: <span my-current-time></span>
