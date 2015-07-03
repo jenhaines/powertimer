@@ -17,13 +17,16 @@
     <form ng-submit="addTask()">
       <input class="new-task" placeholder="What have you done?" ng-model="newTask">
     </form>
-      <ul class="task-list">
-        <li ng-repeat="task in tasks | orderBy: '-created'" >
-          <div>
-            <p>{{task.title}}</p>
-          </div>
-        </li>
-      </ul>      
+        <div class="main">
+          <input class="toggle-all" type="checkbox" ng-model="allChecked" ng-click="markAll(allChecked)">
+          <label for="toggle-all">Mark all as complete</label>
+          <ul class="task-list">
+            <li ng-repeat="task in tasks | orderBy: '-created'" >
+            <input class="toggle" type="checkbox" ng-model="task.completed" ng-change="tasks.$save(task)">
+            <label ng-dblclick="editTodo(todo)">{{task.title}}</label>
+            </li>
+          </ul>
+        </div>
       </div>
 </aside><section>
   <div class="content-box">
