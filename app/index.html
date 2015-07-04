@@ -18,12 +18,13 @@
       <input class="new-task" placeholder="What have you done?" ng-model="newTask">
     </form>
         <div class="main">
-          <input class="toggle-all" type="checkbox" ng-model="allChecked" ng-click="markAll(allChecked)">
-          <label for="toggle-all">Mark all as complete</label>
           <ul class="task-list">
-            <li ng-repeat="task in tasks | orderBy: '-created'" >
-            <input class="toggle" type="checkbox" ng-model="task.completed" ng-change="tasks.$save(task)">
-            <label ng-dblclick="editTodo(todo)">{{task.title}}</label>
+            <li ng-repeat="task in tasks | orderBy: '-created'" ng-class="{editing: task == editedTask}">
+            <label ng-dblclick="editTask(task)">{{task.title}}</label>
+            <button class="destroy" ng-click="removeTask(task)"></button>
+            <form ng-submit="doneEditing(task)">
+              <input class="edit" ng-model="task.title" task-escape="revertEditing(task)" task-blur="doneEditing(task)" task-focus="task == editedTask">
+            </form>
             </li>
           </ul>
         </div>
@@ -53,7 +54,9 @@
     <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/1.1.1/angularfire.min.js"></script>
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/directives/taskEscape.js"></script>
+    <script src="scripts/directives/taskFocus.js"></script>
+    <script src="scripts/directives/taskBlur.js"></script>
     <!-- endbuild -->
 </body>
 </html>

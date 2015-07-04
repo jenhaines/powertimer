@@ -92,7 +92,8 @@ label[for='toggle-all'] {
   appearance: none;
 }
 
-.new-task{
+.new-task,
+.edit {
   width: 85%;
   font-size: 16px;
   font-style: italic;
@@ -124,32 +125,70 @@ label[for='toggle-all'] {
   /*line-height: 1.2;*/
   transition: color 0.4s;
 }
-.task-list li .toggle {
-  text-align: center;
-  width: 40px;
-  /* auto, since non-WebKit browsers doesn't support input styling */
-  height: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto 0;
-  border: none; /* Mobile Safari */
-  -webkit-appearance: none;
-  appearance: none;
-}
-.task-list li .toggle:after {
-  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="-10 -71 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
-}
-.task-list li .toggle:checked:after {
-  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="-10 -71 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
-}
 
-.task-list li:hover {
+/*.task-list li:hover {
   background: #65f558;
-}
+}*/
 
 .task-list li:last-child {
   border-bottom: none;
+}
+
+.task-list li.completed label {
+  color: #d9d9d9;
+  text-decoration: line-through;
+}
+
+.task-list li .destroy {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 6px;
+  width: 40px;
+  height: 40px;
+  margin: auto 0;
+  font-size: 30px;
+  color: red;
+  background: transparent;
+  /*margin-bottom: 11px;*/
+  transition: color 0.2s ease-out;
+}
+
+.task-list li .destroy:hover {
+  color: #af5b5e;
+}
+
+.task-list li .destroy:after {
+  content: '×';
+}
+
+.task-list li:hover .destroy {
+  display: block;
+}
+
+.task-list li .edit {
+  display: none;
+}
+
+.task-list li.editing:last-child {
+  margin-bottom: -1px;
+}
+
+.task-list li.editing {
+  border-bottom: none;
+  padding: 0;
+}
+
+.task-list li.editing .edit {
+  display: block;
+  width: 506px;
+  padding: 13px 17px 12px 17px;
+  margin: 0 0 0 43px;
+}
+
+.task-list li.editing .view {
+  display: none;
 }
 
 .taskapp {
@@ -167,6 +206,23 @@ label[for='toggle-all'] {
 button,
 input[type="checkbox"] {
   outline: none;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
 }
 
 .timer{

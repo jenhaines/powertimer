@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 
-angular.module('powertimerApp', ['firebase', 'ngAnimate'])
+angular.module('powertimerApp', ['firebase', 'ngAnimate', 'taskBlur', 'taskEscape', 'taskFocus'])
 
 .constant('WORK_TIME', 15)
 .constant('BREAK_TIME', 5)
@@ -37,6 +37,25 @@ angular.module('powertimerApp', ['firebase', 'ngAnimate'])
       created: Firebase.ServerValue.TIMESTAMP
     });
     $scope.newTask = '';
+  };
+
+  $scope.editTask = function (task) {
+    $scope.editedTask = task;
+    $scope.originalTask = angular.extend({}, $scope.editedTask);
+  };
+
+  $scope.doneEditing = function (task) {
+    $scope.editedTodo = null;
+    var title = task.title.trim();
+    if (title) {
+      $scope.tasks.$save(task);
+    } else {
+      $scope.removeTask(task);
+    }
+  };
+
+  $scope.removeTask = function(task){
+    $scope.tasks.$remove(task);
   };
 
 })
