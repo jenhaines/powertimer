@@ -45,7 +45,7 @@ angular.module('powertimerApp', ['firebase', 'ngAnimate', 'taskBlur', 'taskEscap
   };
 
   $scope.doneEditing = function (task) {
-    $scope.editedTodo = null;
+    $scope.editedTask = null;
     var title = task.title.trim();
     if (title) {
       $scope.tasks.$save(task);
@@ -56,6 +56,11 @@ angular.module('powertimerApp', ['firebase', 'ngAnimate', 'taskBlur', 'taskEscap
 
   $scope.removeTask = function(task){
     $scope.tasks.$remove(task);
+  };
+
+  $scope.revertEditing = function (task) {
+    task.title = $scope.originalTask.title;
+    $scope.doneEditing(task);
   };
 
 })

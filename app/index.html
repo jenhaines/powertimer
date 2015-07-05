@@ -20,8 +20,10 @@
         <div class="main">
           <ul class="task-list">
             <li ng-repeat="task in tasks | orderBy: '-created'" ng-class="{editing: task == editedTask}">
-            <label ng-dblclick="editTask(task)">{{task.title}}</label>
-            <button class="destroy" ng-click="removeTask(task)"></button>
+            <div class="view">
+              <label ng-dblclick="editTask(task)">{{task.title}}</label>
+              <button class="destroy" ng-click="removeTask(task)"></button>
+            </div>
             <form ng-submit="doneEditing(task)">
               <input class="edit" ng-model="task.title" task-escape="revertEditing(task)" task-blur="doneEditing(task)" task-focus="task == editedTask">
             </form>

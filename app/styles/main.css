@@ -49,7 +49,7 @@ footer {
 }
 
 .task-box{
-  max-width: 300px; 
+  /*max-width: 300px; */
   min-width: 250px;
   margin: 15px auto;
 }
@@ -94,12 +94,13 @@ label[for='toggle-all'] {
 
 .new-task,
 .edit {
-  width: 85%;
+  width: 93%;
   font-size: 16px;
   font-style: italic;
   font-weight: 300;
-  padding: 6px 6px 6px 40px;
-  border: none;
+  padding: 6px 6px 6px 20px;
+  border-left: 2px solid #2db34a;
+  border-right: 2px solid #2db34a;
 
 }
 .task-list {
@@ -120,7 +121,7 @@ label[for='toggle-all'] {
   /*white-space: pre;
   word-break: break-word;*/
   padding: 15px 0;
-  margin-left: 45px;
+  margin-left: 20px;
   display: block;
   /*line-height: 1.2;*/
   transition: color 0.4s;
@@ -182,9 +183,9 @@ label[for='toggle-all'] {
 
 .task-list li.editing .edit {
   display: block;
-  width: 506px;
-  padding: 13px 17px 12px 17px;
-  margin: 0 0 0 43px;
+  /*width: 506px;*/
+  /*padding: 13px 17px 12px 17px;*/
+  /*margin: 0 0 0 43px;*/
 }
 
 .task-list li.editing .view {
