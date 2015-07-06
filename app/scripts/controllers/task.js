@@ -7,7 +7,7 @@
  * # TaskCtrl
  * Controller of the powertimerApp
  */
- angular.module('TaskCtrl', [])
+ angular.module('powertimerApp')
 .controller('TaskCtrl', function($scope, $firebaseArray, Firebase, $interval){
   var url = 'https://jennifer.firebaseio.com/tasks';
   var fireRef = new Firebase(url).limitToLast(10);

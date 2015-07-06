@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-.module('taskEscape',[])
+.module('powertimerApp')
   .directive('taskEscape', function () {
     var ESCAPE_KEY = 27;
     return function (scope, elem, attrs) {

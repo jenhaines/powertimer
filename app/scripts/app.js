@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 
-angular.module('powertimerApp', ['firebase', 'ngAnimate', 'TaskCtrl', 'taskBlur', 'taskEscape', 'taskFocus'])
+angular.module('powertimerApp', ['firebase', 'ngAnimate'])
 
 .constant('WORK_TIME', 1500)
 .constant('BREAK_TIME', 300)

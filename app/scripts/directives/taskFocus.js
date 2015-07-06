@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-.module('taskFocus',[])
+.module('powertimerApp')
 .directive('taskFocus', function taskFocus($timeout) {
   return function (scope, elem, attrs) {
     scope.$watch(attrs.taskFocus, function (newVal) {
