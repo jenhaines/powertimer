@@ -11,9 +11,9 @@
 
 angular.module('powertimerApp', ['firebase', 'ngAnimate', 'TaskCtrl', 'taskBlur', 'taskEscape', 'taskFocus'])
 
-.constant('WORK_TIME', 15)
-.constant('BREAK_TIME', 5)
-.constant('LONG_BREAK', 10)
+.constant('WORK_TIME', 1500)
+.constant('BREAK_TIME', 300)
+.constant('LONG_BREAK', 1800)
 
 .filter('secondsToMin', function () {
   return function(pseconds){
