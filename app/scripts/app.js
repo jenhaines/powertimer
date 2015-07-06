@@ -9,61 +9,11 @@
  * Main module of the application.
  */
 
-angular.module('powertimerApp', ['firebase', 'ngAnimate', 'taskBlur', 'taskEscape', 'taskFocus'])
+angular.module('powertimerApp', ['firebase', 'ngAnimate', 'TaskCtrl', 'taskBlur', 'taskEscape', 'taskFocus'])
 
 .constant('WORK_TIME', 15)
 .constant('BREAK_TIME', 5)
 .constant('LONG_BREAK', 10)
-
-.controller('TaskCtrl', function($scope, $firebaseArray, Firebase, $interval){
-  var url = 'https://jennifer.firebaseio.com/tasks';
-  var fireRef = new Firebase(url).limitToLast(10);
-
-  $scope.tasks = $firebaseArray(fireRef);
-  $scope.newTask = '';
-  $scope.showBoxOne = false;
-
-  $scope.timeOut = function(){
-      $scope.showBoxOne = !$scope.showBoxOne;
-  };
-
-  $scope.addTask = function () {
-    var newTask = $scope.newTask.trim();
-    if (!newTask.length) {
-      return;
-    }
-    $scope.tasks.$add({
-      title: newTask,
-      created: Firebase.ServerValue.TIMESTAMP
-    });
-    $scope.newTask = '';
-  };
-
-  $scope.editTask = function (task) {
-    $scope.editedTask = task;
-    $scope.originalTask = angular.extend({}, $scope.editedTask);
-  };
-
-  $scope.doneEditing = function (task) {
-    $scope.editedTask = null;
-    var title = task.title.trim();
-    if (title) {
-      $scope.tasks.$save(task);
-    } else {
-      $scope.removeTask(task);
-    }
-  };
-
-  $scope.removeTask = function(task){
-    $scope.tasks.$remove(task);
-  };
-
-  $scope.revertEditing = function (task) {
-    task.title = $scope.originalTask.title;
-    $scope.doneEditing(task);
-  };
-
-})
 
 .filter('secondsToMin', function () {
   return function(pseconds){
