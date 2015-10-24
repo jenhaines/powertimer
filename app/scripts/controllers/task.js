@@ -8,7 +8,7 @@
  * Controller of the powertimerApp
  */
  angular.module('powertimerApp')
-.controller('TaskCtrl', function($scope, $firebaseArray, Firebase, $interval){
+.controller('TaskCtrl', function($scope, $firebaseArray){
   var url = 'https://jennifer.firebaseio.com/tasks';
   var fireRef = new Firebase(url).limitToLast(10);
 
@@ -56,4 +56,4 @@
     $scope.doneEditing(task);
   };
 
-})
+});

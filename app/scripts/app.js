@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 
-angular.module('powertimerApp', ['firebase', 'ngAnimate'])
+angular.module('powertimerApp', ['firebase','ngAnimate'])
 
 .constant('WORK_TIME', 1500)
 .constant('BREAK_TIME', 300)
@@ -17,17 +17,17 @@ angular.module('powertimerApp', ['firebase', 'ngAnimate'])
 
 .filter('secondsToMin', function () {
   return function(pseconds){
-    var sec_num = parseInt(pseconds, 10); // don't forget the second param
-    var hours   = Math.floor(sec_num / 3600);
-    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
-    var seconds = sec_num - (hours * 3600) - (minutes * 60);
+    var secNum = parseInt(pseconds, 10); // don't forget the second param
+    var hours   = Math.floor(secNum / 3600);
+    var minutes = Math.floor((secNum - (hours * 3600)) / 60);
+    var seconds = secNum - (hours * 3600) - (minutes * 60);
 
-    if (hours   < 10) {hours   = "0"+hours;}
-    if (minutes < 10) {minutes = "0"+minutes;}
-    if (seconds < 10) {seconds = "0"+seconds;}
+    if (hours   < 10) {hours   = '0'+hours;}
+    if (minutes < 10) {minutes = '0'+minutes;}
+    if (seconds < 10) {seconds = '0'+seconds;}
     var time    = minutes+':'+seconds;
     return time;
-  }
+  };
 })
 
 .directive('powerTimer', function($interval, WORK_TIME, BREAK_TIME, LONG_BREAK) {
@@ -49,16 +49,16 @@ angular.module('powertimerApp', ['firebase', 'ngAnimate'])
 
         scope.startTimer = function() {
           // Don't start a new start if we are already starting
-          if ( angular.isDefined(stop) ) return;
+          if ( angular.isDefined(stop)){return;}
           scope.isActive = true;
 
 
           stop = $interval(function() {
               if (scope.timer > 1) {
-                if(scope.timer == 4){ scope.timeOut()};
-                if(scope.timer  <=  4){cntDown.play()};
+                if(scope.timer === 4){ scope.timeOut();}
+                if(scope.timer  <=  4){cntDown.play();}
                 scope.timer --;
-              } else if(scope.timer == 1){
+              } else if(scope.timer === 1){
                 scope.timer --;
                 finTone.play();
               } else {
@@ -79,11 +79,11 @@ angular.module('powertimerApp', ['firebase', 'ngAnimate'])
                   scope.work = 'Break';
                   scope.timer = BREAK_TIME;
                   intervalNum ++;
-                };
+                }
               } else {
                 scope.work = 'Work';
                 scope.timer = WORK_TIME;
-              };
+              }
             stop = undefined;
             scope.isActive=false;
             scope.timeOut();
@@ -95,7 +95,7 @@ angular.module('powertimerApp', ['firebase', 'ngAnimate'])
             scope.stop();
           });
       }
-    }
+    };
 })
 
 .directive('myCurrentTime', function($interval, dateFilter) {
@@ -121,6 +121,6 @@ angular.module('powertimerApp', ['firebase', 'ngAnimate'])
       element.on('$destroy', function() {
         $interval.cancel(stopTime);
       });
-    }
+    };
   });
 
