@@ -3,45 +3,53 @@ body {
   font-family:  "Source Code Pro", Inconsolata, "Lucida Console", Terminal, "Courier New", Courier;
 }
 
-[class*='col-xs'] {
+.content-box {
+  text-align: center;
+  padding: 15px;
+}
+
+header,
+section,
+aside,
+footer {
   background: #2db34a;
   border-radius: 6px;
   color: #fff;
-  border: 3px white solid;
-  padding-top: 10px;
+  margin: 0 1% 18px 1%;
+  vertical-align: top;
 }
 
-.col-sm-12 {
-  border: 2px solid black;
-  color: #000;
-  padding-top: 10px;
+aside {
+  display: inline-block;
+  width: 33%;
+  height: 500px;
+}
+section {
+  display: inline-block;
+  width: 63%;
+  height: 500px;
+}
+footer {
+  margin-bottom: 0;
 }
 
 .banner{
+  font-family: inherit;
   font-size: 50px;
+  margin: 10px;
 }
 
-.description {
+.description{
   font-size: 14px;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: inherit;
+  margin: 0 100px;
 }
 
-.leftside,
-.content{
-  height: 500px;
-}
-
-.new-task,
-.edit {
-  width: 93%;
-  font-size: 16px;
-  font-style: italic;
-  color: #000;
-  font-weight: 300;
-  padding: 4px 4px 4px 10px;
-  border-left: 2px solid #2db34a;
-  border-right: 2px solid #2db34a;
-
+.task-box{
+  /*max-width: 300px; */
+  min-width: 250px;
+  margin: 15px auto;
 }
 
 .main {
@@ -117,6 +125,10 @@ label[for='toggle-all'] {
   transition: color 0.4s;
 }
 
+/*.task-list li:hover {
+  background: #65f558;
+}*/
+
 .task-list li:last-child {
   border-bottom: none;
 }
@@ -178,15 +190,16 @@ label[for='toggle-all'] {
   display: none;
 }
 
-
-.timer{
-  font-size: 66px;
-  color: red;
-}
-
-.clock{
-  margin-top: 10px;
-  font-size: 20px;
+.taskapp {
+  background: #fff;
+  margin: 130px 0 40px 0;
+  left: 50px;
+  top: 50px;
+  margin: 0;
+  width: 65%;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+               0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
 button,
@@ -194,3 +207,70 @@ input[type="checkbox"] {
   outline: none;
 }
 
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.timer{
+  position: relative;
+  font-size: 66px;
+  color: red;
+  top: 20px;
+}
+
+.tomato{
+  position: relative;
+  top: 40px;
+}
+
+.btn {
+  border-radius: 28px;
+  font-family: inherit;
+  color: #ffffff;
+  font-size: 16px;
+  background: #2db34a;
+  padding: 10px 17px;
+  border: solid #ffffff 2px;
+  text-decoration: none;
+  outline: 0;
+}
+
+.btn:hover {
+  background: #65f558;
+}
+
+
+.active{
+  border: solid #ffff00 2px;
+}
+
+.bigger{
+  animation-duration: 1s; 
+  animation-name: pulse;
+  animation-timing-function: ease; 
+  animation-delay: 0;
+  animation-iteration-count: 4;
+  animation-direction: normal;
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(.7);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
