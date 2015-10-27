@@ -33,28 +33,27 @@ body {
 
 .new-task,
 .edit {
-  width: 93%;
+  width: 100%;
   font-size: 16px;
   font-style: italic;
+  /*font-weight: 300;*/
   color: #000;
-  font-weight: 300;
-  padding: 4px 4px 4px 10px;
+  padding: 4px;
   border-left: 2px solid #2db34a;
   border-right: 2px solid #2db34a;
-
 }
 
-.main {
+/*.main {
   position: relative;
   z-index: 2;
   border-top: 1px solid #e6e6e6;
-}
+}*/
 
-label[for='toggle-all'] {
+/*label[for='toggle-all'] {
   display: none;
-}
+}*/
 
-.toggle-all {
+/*.toggle-all {
   position: absolute;
   top: -38px;
   left: -22px;
@@ -80,51 +79,41 @@ label[for='toggle-all'] {
   transform: rotate(90deg);
   -webkit-appearance: none;
   appearance: none;
-}
+}*/
 
-.new-task,
-.edit {
-  width: 93%;
-  font-size: 16px;
-  font-style: italic;
-  font-weight: 300;
-  padding: 6px 6px 6px 20px;
-  border-left: 2px solid #2db34a;
-  border-right: 2px solid #2db34a;
-
-}
 .task-list {
   padding: 0;
-  margin: 0;
+  /*margin: 0;*/
   list-style: none;
 }
 
 .task-list li {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   position: relative;
-  font-size: 16px;
+  padding: 12px 0px 12px 12px;
+  font-size: 14px;
   line-height: .5em;  
   border-bottom: 1px solid #ededed;
 }
 
-.task-list li label {
-  white-space: pre;
-  word-break: break-word;
-  padding: 15px 0;
-  margin-left: 20px;
-  display: block;
+/*.task-list li label {*/
+  /*white-space: pre;*/
+  /*word-break: break-word;*/
+  /*padding: 15px 0;*/
+  /*margin-left: 20px;*/
+  /*display: block;*/
   /*line-height: 1.2;*/
-  transition: color 0.4s;
-}
+  /*transition: color 0.4s;*/
+/*}*/
 
 .task-list li:last-child {
   border-bottom: none;
 }
 
-.task-list li.completed label {
+/*.task-list li.completed label {
   color: #d9d9d9;
   text-decoration: line-through;
-}
+}*/
 
 .task-list li .destroy {
   display: none;
@@ -138,7 +127,6 @@ label[for='toggle-all'] {
   font-size: 30px;
   color: red;
   background: transparent;
-  /*margin-bottom: 11px;*/
   transition: color 0.2s ease-out;
 }
 
@@ -178,6 +166,24 @@ label[for='toggle-all'] {
   display: none;
 }
 
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+
 
 .timer{
   font-size: 66px;
@@ -189,8 +195,8 @@ label[for='toggle-all'] {
   font-size: 20px;
 }
 
-button,
+/*button,
 input[type="checkbox"] {
   outline: none;
-}
+}*/
 
