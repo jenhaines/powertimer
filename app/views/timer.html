@@ -1,4 +1,6 @@
-<div class="timer" >{{ timer | secondsToMin }}
-</br>
-   <button class="btn btn-default" ng-click="startTimer()">{{ 'Start ' + work }}</button>&nbsp<button class="btn btn-default" ng-click="stopTimer('Break')">Stop & Reset</button> 
-   </div>
+
+<div class="col-xs-12 timer" >{{ timer | secondsToMin }}</div>
+<div class="col-xs-12">
+<button class="btn btn-default" ng-click="startTimer()">{{ 'Start ' + work }}</button>
+<button class="btn btn-default" ng-click="stopTimer('Break')">Stop & Reset</button> 
+</div>

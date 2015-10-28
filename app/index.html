@@ -15,18 +15,19 @@
   <body ng-controller="TaskCtrl">
     <div class="container">
       <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12 tiles">
         <p class="text-center banner">PowerTimer</p>
       </div>
-            <div class= "col-xs-4 leftside">
+            <div class= "col-xs-4 tiles leftside">
                 <form ng-submit="addTask()">
                   <input class="new-task" placeholder="What have you done?" ng-model="newTask">
                 </form>
-
                 <ul class="task-list">
                   <li ng-repeat="task in tasks | orderBy: '-created'" ng-class="{editing: task == editedTask}">
-                    <label ng-dblclick="editTask(task)">{{task.title}}</label>
-                    <button class="destroy" ng-click="removeTask(task)"></button>
+                    <div class="view">
+                      <label ng-dblclick="editTask(task)">{{task.title}}</label>
+                      <button class="destroy" ng-click="removeTask(task)"></button>
+                    </div>
                     <form ng-submit="doneEditing(task)">
                       <input class="edit" ng-model="task.title" task-escape="revertEditing(task)" task-blur="doneEditing(task)" task-focus="task == editedTask">
                     </form>
@@ -34,13 +35,13 @@
                 </ul>
                 
             </div>
-            <div class="col-xs-8 text-center content">
+            <div class="col-xs-8 tiles text-center content">
               <p class="clock">Current time is: <span my-current-time></span></p>
               <hr/>
               <power-timer></power-timer>
-              <img ng-class="{'bigger':showBoxOne}" src="/images/tomato.png">
+                <img ng-class="{'bigger':showBoxOne}" src="/images/tomato.png">
             </div>
-      <div class="col-xs-12">
+      <div class="col-xs-12 tiles">
         <p class="text-center description">The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. The technique uses a timer to break down work into intervals traditionally 25 minutes in length, separated by short breaks. These intervals are known as "pomodori", the plural of the Italian word pomodoro for "tomato". The method is based on the idea that frequent breaks can improve mental agility.</p>
       </div>
       </div>

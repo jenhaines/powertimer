@@ -3,7 +3,7 @@ body {
   font-family:  "Source Code Pro", Inconsolata, "Lucida Console", Terminal, "Courier New", Courier;
 }
 
-[class*='col-xs'] {
+.tiles {
   background: #2db34a;
   border-radius: 6px;
   color: #fff;
@@ -11,11 +11,11 @@ body {
   padding-top: 10px;
 }
 
-.col-sm-12 {
+/*.col-sm-12 {
   border: 2px solid black;
   color: #000;
   padding-top: 10px;
-}
+}*/
 
 .banner{
   font-size: 50px;
@@ -43,41 +43,6 @@ body {
   border-right: 2px solid #2db34a;
 }
 
-/*.main {
-  position: relative;
-  z-index: 2;
-  border-top: 1px solid #e6e6e6;
-}*/
-
-/*label[for='toggle-all'] {
-  display: none;
-}*/
-
-/*.toggle-all {
-  position: absolute;
-  top: -38px;
-  left: -22px;
-  width: 60px;
-  height: 34px;
-  text-align: center;
-  border: none;
-}
-.toggle-all:before {
-  content: '❯';
-  font-size: 22px;
-  color: #e6e6e6;
-  padding: 10px 27px 10px 27px;
-}
-.toggle-all:checked:before {
-  color: #737373;
-}
-.toggle-all {
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
-  -webkit-appearance: none;
-  appearance: none;
-}*/
-
 .task-list {
   padding: 0;
   /*margin: 0;*/
@@ -93,24 +58,9 @@ body {
   border-bottom: 1px solid #ededed;
 }
 
-/*.task-list li label {*/
-  /*white-space: pre;*/
-  /*word-break: break-word;*/
-  /*padding: 15px 0;*/
-  /*margin-left: 20px;*/
-  /*display: block;*/
-  /*line-height: 1.2;*/
-  /*transition: color 0.4s;*/
-/*}*/
-
 .task-list li:last-child {
   border-bottom: none;
 }
-
-/*.task-list li.completed label {
-  color: #d9d9d9;
-  text-decoration: line-through;
-}*/
 
 .task-list li .destroy {
   display: none;
@@ -154,9 +104,6 @@ body {
 
 .task-list li.editing .edit {
   display: block;
-  /*width: 506px;*/
-  /*padding: 13px 17px 12px 17px;*/
-  /*margin: 0 0 0 43px;*/
 }
 
 .task-list li.editing .view {
@@ -168,19 +115,7 @@ button {
   padding: 0;
   border: 0;
   background: none;
-  font-size: 100%;
-  vertical-align: baseline;
-  font-family: inherit;
-  font-weight: inherit;
-  color: inherit;
-  -webkit-appearance: none;
-  appearance: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  font-smoothing: antialiased;
 }
-
-
 
 .timer{
   font-size: 66px;
@@ -192,7 +127,20 @@ button {
   font-size: 20px;
 }
 
-/*button,
-input[type="checkbox"] {
-  outline: none;
-}*/
+.bigger{
+  animation-duration: 1s; 
+  animation-name: pulse;
+  animation-timing-function: ease; 
+  animation-delay: 0;
+  animation-iteration-count: 4;
+  animation-direction: normal;
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(.7);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
